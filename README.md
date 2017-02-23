@@ -1,23 +1,27 @@
-# Ruby Style Guide
+# Airbnb Ruby Style Guide - Vietnamese (Tiếng Việt)
 
-This is Airbnb's Ruby Style Guide.
+Status / Tình trạng : Processing /Chưa xong 
 
-It was inspired by [Github's guide](https://web.archive.org/web/20160410033955/https://github.com/styleguide/ruby) and [Bozhidar Batsov's guide][bbatsov-ruby].
+# Nội Dung 
 
-Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
+Đây là toàn bộ bài viết được dịch từ [Airbnb's Ruby Style Guide](https://github.com/airbnb/ruby).
 
-## Table of Contents
-  1. [Whitespace](#whitespace)
-    1. [Indentation](#indentation)
-    1. [Inline](#inline)
-    1. [Newlines](#newlines)
-  1. [Line Length](#line-length)
-  1. [Commenting](#commenting)
-    1. [File/class-level comments](#fileclass-level-comments)
-    1. [Function comments](#function-comments)
-    1. [Block and inline comments](#block-and-inline-comments)
-    1. [Punctuation, spelling, and grammar](#punctuation-spelling-and-grammar)
-    1. [TODO comments](#todo-comments)
+Bài viết này được lấy cảm hứng từ [Github's guide](https://web.archive.org/web/20160410033955/https://github.com/styleguide/ruby) và [Bozhidar Batsov's guide][bbatsov-ruby].
+
+Airbnb cũng đang hỗ trợ cho một [JavaScript Style Guide][airbnb-javascript].
+
+## Mục Lục
+  1. [Khoảng trắng/ Khoảng cách](#whitespace)
+    1. [Thụt đầu dòng](#indentation)
+    1. [Trong cùng một dòng](#inline)
+    1. [Dòng mới](#newlines)
+  1. [Chiều dài của dòng](#line-length)
+  1. [Chú thích](#commenting)
+    1. [Chú thích cho File/class-level](#fileclass-level-comments)
+    1. [Chú thích cho Function](#function-comments)
+    1. [Chú thích trong block và trong dòng](#block-and-inline-comments)
+    1. [Dấu chấm câu, lỗi chính tả và ngữ pháp](#punctuation-spelling-and-grammar)
+    1. [Chú thích TODO](#todo-comments)
     1. [Commented-out code](#commented-out-code)
   1. [Methods](#methods)
     1. [Method definitions](#method-definitions)
@@ -38,14 +42,13 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
   1. [Be Consistent](#be-consistent)
   1. [Translation](#translation)
 
-## Whitespace
+## Khoảng trắng / Khoảng cách
 
-### Indentation
+### Thụt đầu dòng
 
-* <a name="default-indentation"></a>Use soft-tabs with a two
-    space-indent.<sup>[[link](#default-indentation)]</sup>
+* <a name="default-indentation"></a>Sử dụng phím tab với 2 khoảng trắng thụt vào<sup>[[link](#default-indentation)]</sup>
 
-* <a name="indent-when-as-case"></a>Indent `when` as deep as `case`.
+* <a name="indent-when-as-case"></a>Thụt đầu dòng cho `when` cùng cấp như `case`.
     <sup>[[link](#indent-when-as-case)]</sup>
 
     ```ruby
@@ -70,8 +73,7 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
            end
     ```
 
-* <a name="align-function-params"></a>Align function parameters either all on
-    the same line or one per line.<sup>[[link](#align-function-params)]</sup>
+* <a name="align-function-params"></a>Căng lề cho function parameters như trên cùng một hàng ngang hoặc hàng dọc <sup>[[link](#align-function-params)]</sup>
 
     ```ruby
     # bad
@@ -105,8 +107,7 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     end
     ```
 
-* <a name="indent-multi-line-bool"></a>Indent succeeding lines in multi-line
-    boolean expressions.<sup>[[link](#indent-multi-line-bool)]</sup>
+* <a name="indent-multi-line-bool"></a>Thọc đầu dòng cho các line tiếp theo   của cùng một biểu thức boolean<sup>[[link](#indent-multi-line-bool)]</sup>
 
     ```ruby
     # bad
@@ -124,13 +125,12 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     end
     ```
 
-### Inline
+### Trong cùng một dòng
 
-* <a name="trailing-whitespace"></a>Never leave trailing whitespace.
+* <a name="trailing-whitespace"></a>Không bao giờ có dấu khoảng cách/khoảng trắng (Never leave trailing whitespace).
     <sup>[[link](#trailing-whitespace)]</sup>
 
-* <a name="space-before-comments"></a>When making inline comments, include a
-    space between the end of the code and the start of your comment.
+* <a name="space-before-comments"></a>Khi chú thích cho code của bạn trên cùng một dòng cần phai có dấu khoảng cách giữa code và chú thích của bạn.
     <sup>[[link](#space-before-comments)]</sup>
 
     ```ruby
@@ -141,8 +141,8 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     result = func(a, b) # we might want to change b to c
     ```
 
-* <a name="spaces-operators"></a>Use spaces around operators; after commas,
-    colons, and semicolons; and around `{` and before `}`.
+* <a name="spaces-operators"></a>Sử dụng các khoảng trắng trước và sau `operators`; sau dâu phẩy,
+    dấu hai chấm, và dấu phẩy; trước và sau `{` cũng như `}`.
     <sup>[[link](#spaces-operators)]</sup>
 
     ```ruby
@@ -152,16 +152,14 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     [1, 2, 3].each { |e| puts e }
     ```
 
-* <a name="no-space-before-commas"></a>Never include a space before a comma.
+* <a name="no-space-before-commas"></a>Không bao giờ có khoảng cách trước dấu phẩy
     <sup>[[link](#no-space-before-commas)]</sup>
 
     ```ruby
     result = func(a, b)
     ```
 
-* <a name="spaces-block-params"></a>Do not include space inside block
-    parameter pipes. Include one space between parameters in a block.
-    Include one space outside block parameter pipes.
+* <a name="spaces-block-params"></a>Không nên có khoảng trắng trong block `parameter pipes`. Hoặc khoảng trắng giữa các `parameters` trong một `block`. Hoặc có thêm một khoảng trắng ở bên ngoài `block parameter pipes`.
     <sup>[[link](#spaces-block-params")]</sup>
 
     ```ruby
@@ -172,14 +170,13 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     {}.each { |x, y| puts x }
     ```
 
-* <a name="no-space-after-!"></a>Do not leave space between `!` and its
-    argument.<sup>[[link](#no-space-after-!)]</sup>
+* <a name="no-space-after-!"></a>Không nên có khoảng trắng giữa `!` và `argument`<sup>[[link](#no-space-after-!)]</sup>
 
     ```ruby
     !something
     ```
 
-* <a name="no-spaces-braces"></a>No spaces after `(`, `[` or before `]`, `)`.
+* <a name="no-spaces-braces"></a>Không có khoảng trắng sau `(`, `[`  hoặc trước `]`, `)`.
     <sup>[[link](#no-spaces-braces)]</sup>
 
     ```ruby
@@ -187,8 +184,7 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     [1, 2, 3].length
     ```
 
-* <a name="no-spaces-string-interpolation"></a>Omit whitespace when doing
-    string interpolation.<sup>[[link](#no-spaces-string-interpolation)]</sup>
+* <a name="no-spaces-string-interpolation"></a>Không nên có khoảng trắng sau `{` hoặc trước `}` khi viết một biến trong một chuỗi(string)<sup>[[link](#no-spaces-string-interpolation)]</sup>
 
     ```ruby
     # bad
@@ -198,7 +194,7 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     var = "This #{foobar} is interpolated."
     ```
 
-* <a name="no-spaces-range-literals"></a>Don't use extra whitespace in range
+* <a name="no-spaces-range-literals"></a>Không sử dụng các khoảng trống thừa trong range
     literals.<sup>[[link](#no-spaces-range-literals)]</sup>
 
     ```ruby
@@ -209,10 +205,9 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     (0...coll).each do |item|
     ```
 
-### Newlines
+### Dòng mới
 
-* <a name="multiline-if-newline"></a>Add a new line after `if` conditions span
-    multiple lines to help differentiate between the conditions and the body.
+* <a name="multiline-if-newline"></a>Nếu có nhiều điều kiện cho mệnh đề `if` thì nên chia ra thành nhiều dòng để giúp phân biệt rõ ràng hơn.
     <sup>[[link](#multiline-if-newline)]</sup>
 
     ```ruby
@@ -223,8 +218,7 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     end
     ```
 
-* <a name="newline-after-conditional"></a>Add a new line after conditionals,
-    blocks, case statements, etc.<sup>[[link](#newline-after-conditional)]</sup>
+* <a name="newline-after-conditional"></a>Thêm một dòng mới sau điều kiện, block, các trường hợp `case`<sup>[[link](#newline-after-conditional)]</sup>
 
     ```ruby
     if robot.is_awesome?
@@ -234,8 +228,9 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     robot.add_trait(:human_like_intelligence)
     ```
 
-* <a name="newline-different-indent"></a>Don’t include newlines between areas
-    of different indentation (such as around class or module bodies).
+* <a name="newline-different-indent"></a>Không nên có các dòng trống giữa các
+    `indentation` khác nhau (như giữa `class` hoặc `module` với các method
+    bên trong nó).
     <sup>[[link](#newline-different-indent)]</sup>
 
     ```ruby
@@ -256,8 +251,7 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     end
     ```
 
-* <a name="newline-between-methods"></a>Include one, but no more than one, new
-    line between methods.<sup>[[link](#newline-between-methods)]</sup>
+* <a name="newline-between-methods"></a>Nên chỉ có một dòng trống giữa các `method` với nhau<sup>[[link](#newline-between-methods)]</sup>
 
     ```ruby
     def a
@@ -267,8 +261,7 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     end
     ```
 
-* <a name="method-def-empty-lines"></a>Use a single empty line to break between
-    statements to break up methods into logical paragraphs internally.
+* <a name="method-def-empty-lines"></a>Sử dụng một dòng trống duy nhất để phân biệt các logic cho từng bước.
     <sup>[[link](#method-def-empty-lines)]</sup>
 
     ```ruby
@@ -285,8 +278,7 @@ Airbnb also maintains a [JavaScript Style Guide][airbnb-javascript].
     end
     ```
 
-* <a name="trailing-newline"></a>End each file with a newline. Don't include
-    multiple newlines at the end of a file.
+* <a name="trailing-newline"></a>Cuối mỗi file nên chỉ có một dòng trống là đủ.
     <sup>[[link](#trailing-newline)]</sup>
 
 ## Line Length
