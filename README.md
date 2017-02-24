@@ -391,12 +391,13 @@ def fallbacks_for(the_locale, opts = {})
 end
 ```
 
-### Block and inline comments
+### Chú thích trong Block và trong cùng một dòng
 
-The final place to have comments is in tricky parts of the code. If you're
-going to have to explain it at the next code review, you should comment it now.
-Complicated operations get a few lines of comments before the operations
-commence. Non-obvious ones get comments at the end of the line.
+Là nơi có những chú thích cho những phần code phức tạp. Nếu bạn phải giải thích
+và review code, bạn nên chú thích cho nó ngay bây giờ. Các code `operations` 
+phức tạp nên có vài dòng chú thích trước khi bắt đầu. Những đoạn code không rõ ràng
+cũng nên có chú thích ở cuối.
+
 
 ```ruby
 def fallbacks_for(the_locale, opts = {})
@@ -417,12 +418,11 @@ def fallbacks_for(the_locale, opts = {})
 end
 ```
 
-On the other hand, never describe the code. Assume the person reading the code
-knows the language (though not what you're trying to do) better than you do.
+Mặc khác, không bao giờ mô tả cho code. Giả sử người đọc code biết ngôn ngữ đó 
+(mặc dù không phải những gì bạn cố găng làm) tốt hơn so với bạn làm.
 
-<a name="no-block-comments"></a>Related: do not use block comments. They cannot
-  be preceded by whitespace and are not as easy to spot as regular comments.
-  <sup>[[link](#no-block-comments)]</sup>
+<a name="no-block-comments"></a>Liên quan: không sử dụng một khối gồm nhiều chú thích
+cho nhiều dòng code bởi vì nó thật sự khó quan sát<sup>[[link](#no-block-comments)]</sup>
 
   ```ruby
   # bad
