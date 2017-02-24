@@ -23,9 +23,9 @@ Airbnb cũng đang hỗ trợ cho một [JavaScript Style Guide][airbnb-javascri
     1. [Dấu chấm câu, lỗi chính tả và ngữ pháp](#punctuation-spelling-and-grammar)
     1. [Chú thích TODO](#todo-comments)
     1. [Commented-out code](#commented-out-code)
-  1. [Methods](#methods)
-    1. [Method definitions](#method-definitions)
-    1. [Method calls](#method-calls)
+  1. [Các phương thức (Methods)](#methods)
+    1. [Các phương thức định nghĩa (Method definitions)](#method-definitions)
+    1. [Các cách gọi phương thức (Method calls)](#method-calls)
   1. [Conditional Expressions](#conditional-expressions)
     1. [Conditional keywords](#conditional-keywords)
     1. [Ternary operator](#ternary-operator)
@@ -358,7 +358,7 @@ neutralization: neutralisation
 ...
 ```
 
-### Chú thích Function
+### Chú thích cho Function
 
 Mỗi `function` nên có chú thích ở trước để mô tả chức năng và cách sử dụng. 
 Các chú thích mô tả cho `function`, nó cũng sẽ không nói function đó sẽ làm những gì.
@@ -436,26 +436,17 @@ cho nhiều dòng code bởi vì nó thật sự khó quan sát<sup>[[link](#no-
   # another comment line
   ```
 
-### Punctuation, spelling and grammar
+### Dấu chấm câu, lỗi chính tả và ngữ pháp
 
-Pay attention to punctuation, spelling, and grammar; it is easier to read
-well-written comments than badly written ones.
+Hãy chú ý đến dấu chấm câu, lỗi chính tả và ngữ pháp, sẽ dễ dàng hơn nếu đọc hiểu tốt các chú thích của bạn. 
 
-Comments should be as readable as narrative text, with proper capitalization
-and punctuation. In many cases, complete sentences are more readable than
-sentence fragments. Shorter comments, such as comments at the end of a line of
-code, can sometimes be less formal, but you should be consistent with your
-style.
+Các chú thích nên được viết như văn bản tường thuật, có ngắt nghỉ hợp lý. Trong nhiều trường, câu hoàn chỉnh dễ hiểu hơn so với một câu vắn tắt. 
 
-Although it can be frustrating to have a code reviewer point out that you are
-using a comma when you should be using a semicolon, it is very important that
-source code maintain a high level of clarity and readability. Proper
-punctuation, spelling, and grammar help with that goal.
+Sử dụng dấu chấm phẩy hoặc dấu phẩy hợp lý. Việc đó rất quan trọng để duy trì tính rõ ràng và dễ đọc. Đúng dâu chấm, dấu phẩy và ngữ pháp sẽ giúp bạn diễn đạt vấn đề rõ ràng hơn.
 
-### TODO comments
+### Chú thích cho TODO (Các việc cần làm)
 
-Use TODO comments for code that is temporary, a short-term solution, or
-good-enough but not perfect.
+Sử dụng chú thích cho TODO để thay thế các đoạn code khi chúng chưa được viết. Nó cần ngắn gọn và dễ hiểu nhưng không cần quá hoàn hảo.
 
 TODOs should include the string TODO in all caps, followed by the full name
 of the person who can best provide context about the problem referenced by the
@@ -481,13 +472,12 @@ Thus when you create a TODO, it is almost always your name that is given.
 * <a name="commented-code"></a>Never leave commented-out code in our codebase.
     <sup>[[link](#commented-code)]</sup>
 
-## Methods
+## Các phương thức
 
-### Method definitions
+### Các phương thức định nghĩa (Method definitions)
 
-* <a name="method-def-parens"></a>Use `def` with parentheses when there are
-    parameters. Omit the parentheses when the method doesn't accept any
-    parameters.<sup>[[link](#method-def-parens)]</sup>
+* <a name="method-def-parens"></a>Sử dụng `def` với dấu ngoặc đơn khi có 
+    parameters. Bỏ qua không dùng ngoặc đươn khi không có parameters.<sup>[[link](#method-def-parens)]</sup>
 
      ```ruby
      def some_method
@@ -499,8 +489,7 @@ Thus when you create a TODO, it is almost always your name that is given.
      end
      ```
 
-* <a name="no-default-args"></a>Do not use default arguments. Use an options
-    hash instead.<sup>[[link](#no-default-args)]</sup>
+* <a name="no-default-args"></a>Không sử dụng arguments mặc định. Thay vào đó hãy dùng các tùy chọn (options)<sup>[[link](#no-default-args)]</sup>
 
     ```ruby
     # bad
@@ -521,9 +510,7 @@ Thus when you create a TODO, it is almost always your name that is given.
     end
     ```
 
-* <a name="no-single-line-methods"></a>Avoid single-line methods. Although
-    they are somewhat popular in the wild, there are a few peculiarities about
-    their definition syntax that make their use undesirable.
+* <a name="no-single-line-methods"></a>Tránh các single-line methods. Mặc dù nó cò phần phổ biến, có một vài đặc thù về định nghĩa làm cho việc sử dụng chúng không như mong muốn.
     <sup>[[link](#no-single-line-methods)]</sup>
 
     ```ruby
@@ -536,11 +523,11 @@ Thus when you create a TODO, it is almost always your name that is given.
     end
     ```
 
-### Method calls
+### Các cách gọi phương thức (Method calls)
 
-**Use parentheses** for a method call:
+**Sử dụng dấu ngoặc đơn** để gọi phương thức (method):
 
-* <a name="returns-val-parens"></a>If the method returns a value.
+* <a name="returns-val-parens"></a>Nếu method trả về giá trị
     <sup>[[link](#returns-val-parens)]</sup>
 
     ```ruby
@@ -551,8 +538,7 @@ Thus when you create a TODO, it is almost always your name that is given.
     @current_user = User.find_by_id(1964192)
     ```
 
-* <a name="first-arg-parens"></a>If the first argument to the method uses
-    parentheses.<sup>[[link](#first-arg-parens)]</sup>
+* <a name="first-arg-parens"></a>Nếu đối số đầu tiên của method được sử dụng<sup>[[link](#first-arg-parens)]</sup>
 
     ```ruby
     # bad
@@ -562,8 +548,7 @@ Thus when you create a TODO, it is almost always your name that is given.
     put!((x + y) % len, value)
     ```
 
-* <a name="space-method-call"></a>Never put a space between a method name and
-    the opening parenthesis.<sup>[[link](#space-method-call)]</sup>
+* <a name="space-method-call"></a>Không bao giờ có khoảng cách / khoảng trắng giữa dâu ngoặc đơn và tên method<sup>[[link](#space-method-call)]</sup>
 
     ```ruby
     # bad
@@ -573,8 +558,7 @@ Thus when you create a TODO, it is almost always your name that is given.
     f(3 + 2) + 1
     ```
 
-* <a name="no-args-parens"></a>**Omit parentheses** for a method call if the
-    method accepts no arguments.<sup>[[link](#no-args-parens)]</sup>
+* <a name="no-args-parens"></a>**Không có dấu ngoặc đơn** cho method nếu nó không có đối số truyền vào<sup>[[link](#no-args-parens)]</sup>
 
     ```ruby
     # bad
@@ -584,9 +568,7 @@ Thus when you create a TODO, it is almost always your name that is given.
     nil?
     ```
 
-* <a name="no-return-parens"></a>If the method doesn't return a value (or we
-    don't care about the return), parentheses are optional. (Especially if the
-    arguments overflow to multiple lines, parentheses may add readability.)
+* <a name="no-return-parens"></a>Nếu method không trả về giá trị hay không quan trả về cái gì thì dấu ngoặc đơn cũng là một lựa chọn nếu có nhiều dòng, nhiều đối số truyền vào.
     <sup>[[link](#no-return-parens)]</sup>
 
     ```ruby
@@ -597,10 +579,9 @@ Thus when you create a TODO, it is almost always your name that is given.
     render :partial => 'foo'
     ```
 
-In either case:
+Trong cả hai trường hợp:
 
-* <a name="options-no-braces"></a>If a method accepts an options hash as the
-    last argument, do not use `{` `}` during invocation.
+* <a name="options-no-braces"></a>Nếu method chấp nhận đối số truyền vào cuối cùng là `hash`, không sử dụng `{` `}`.
     <sup>[[link](#options-no-braces)]</sup>
 
     ```ruby
