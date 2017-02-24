@@ -281,36 +281,32 @@ Airbnb cũng đang hỗ trợ cho một [JavaScript Style Guide][airbnb-javascri
 * <a name="trailing-newline"></a>Cuối mỗi file nên chỉ có một dòng trống là đủ.
     <sup>[[link](#trailing-newline)]</sup>
 
-## Line Length
-
-* Keep each line of code to a readable length. Unless
-  you have a reason to, keep lines to fewer than 100 characters.
-  ([rationale](./rationales.md#line-length))<sup>
+## Chiều dài của dòng
+* Độ dài của dòng code sao cho có thể dễ dàng đọc và hiểu được. Tốt nhất nên ít hơn 100 kí tự.
+  ([lý do](./rationales.md#line-length))<sup>
   [[link](#line-length)]</sup>
 
-## Commenting
-
-> Though a pain to write, comments are absolutely vital to keeping our code
-> readable. The following rules describe what you should comment and where. But
-> remember: while comments are very important, the best code is
-> self-documenting. Giving sensible names to types and variables is much better
-> than using obscure names that you must then explain through comments.
-
-> When writing your comments, write for your audience: the next contributor who
-> will need to understand your code. Be generous — the next one may be you!
+## Chú thích
+> Việc viết chú thích cho code là điều quan trọng và cần phải làm, điều đó sẽ giúp
+> người khác dễ hiêu hơn. Đây là những qui tắc bạn cần chú thích và chú thích ở đâu.
+> Nhưng bạn phải nhớ: chú thích là quan trọng, code tốt nhất như là có một tài liệu sẵn
+> (the best code is self-documenting). Đặt tên các kiểu và biến dễ hiểu thì sẽ tốt hơn
+> bạn phải chú thích thêm ở sau đó
+> Khi bạn viết chú thích bạn hãy xem mình như một nhà viết sách, những người
+> kế tiếp cần phải hiểu được code của bạn (Be generous — the next one may be you!)
 
 &mdash;[Google C++ Style Guide][google-c++]
 
-Portions of this section borrow heavily from the Google
-[C++][google-c++-comments] and [Python][google-python-comments] style guides.
+Các phần này được trích từ 
+[C++][google-c++-comments] và [Python][google-python-comments] style guides.
 
-### File/class-level comments
+### Chú thích cho File/class-level
 
-Every class definition should have an accompanying comment that describes what
-it is for and how it should be used.
+Mỗi định nghĩa cho một `class` nên có những chú thich để mô tả nó làm những gì
+và sử dụng nó như thế nào.
 
-A file that contains zero classes or more than one class should have a comment
-at the top describing its contents.
+Một file có chứa nhiều `class` hay không có `class` nào cũng nên có chú thích
+ở đầu của nó
 
 ```ruby
 # Automatic conversion of one locale to another where it is possible, like
@@ -344,7 +340,7 @@ module Translation
   end
 ```
 
-All files, including data and config files, should have file-level comments.
+Các tập tin bao gồm dữ liệu và file config cũng nên có **file-level comments**
 
 ```ruby
 # List of American-to-British spelling variants.
@@ -362,26 +358,23 @@ neutralization: neutralisation
 ...
 ```
 
-### Function comments
+### Chú thích Function
 
-Every function declaration should have comments immediately preceding it that
-describe what the function does and how to use it. These comments should be
-descriptive ("Opens the file") rather than imperative ("Open the file"); the
-comment describes the function, it does not tell the function what to do. In
-general, these comments do not describe how the function performs its task.
-Instead, that should be left to comments interspersed in the function's code.
+Mỗi `function` nên có chú thích ở trước để mô tả chức năng và cách sử dụng. 
+Các chú thích mô tả cho `function`, nó cũng sẽ không nói function đó sẽ làm những gì.
+Nhìn chung, các chú thích này không mô tả cách các chức năng thực hiện nhiệm vụ của mình.
+Thay vào đó nên nên cho các chú thích xen kẽ giữa các dòng code.
 
-Every function should mention what the inputs and outputs are, unless it meets
-all of the following criteria:
 
-* not externally visible
-* very short
-* obvious
+Mỗi function nên đề cập đến đầu ra và đầu vào là những gì. 
+Trừ khi nó đáp ứng tất cả các tiêu chí sau:
 
-You may use whatever format you wish. In Ruby, two popular function
-documentation schemes are [TomDoc](http://tomdoc.org/) and
-[YARD](http://rubydoc.info/docs/yard/file/docs/GettingStarted.md). You can also
-just write things out concisely:
+* Không thể nhìn thấy bên ngoài (not externally visible)
+* rất ngắn (very short)
+* rõ ràng (obvious)
+
+Bạn có thể sử dụng bất cứ định dạng nào mà bạn muốn. Trong Ruby, 2 tài liệu phổ biến là [TomDoc](http://tomdoc.org/) và
+[YARD](http://rubydoc.info/docs/yard/file/docs/GettingStarted.md). Bạn có thể viết những điều đó một cách súc tích nhất có thể:
 
 ```ruby
 # Returns the fallback locales for the_locale.
