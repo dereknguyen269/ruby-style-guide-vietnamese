@@ -26,8 +26,8 @@ Airbnb cũng đang hỗ trợ cho một [JavaScript Style Guide][airbnb-javascri
   1. [Các phương thức (Methods)](#methods)
     1. [Các phương thức định nghĩa (Method definitions)](#method-definitions)
     1. [Các cách gọi phương thức (Method calls)](#method-calls)
-  1. [Conditional Expressions](#conditional-expressions)
-    1. [Conditional keywords](#conditional-keywords)
+  1. [Biểu thức điều kiện (Conditional Expressions)](#conditional-expressions)
+    1. [Từ khóa điều kiện (Conditional keywords)](#conditional-keywords)
     1. [Ternary operator](#ternary-operator)
   1. [Syntax](#syntax)
   1. [Naming](#naming)
@@ -592,11 +592,11 @@ Trong cả hai trường hợp:
     get '/v1/reservations', :id => 54875
     ```
 
-## Conditional Expressions
+## Biểu thức điều kiện
 
-### Conditional keywords
+### Từ khóa điều kiện
 
-* <a name="multiline-if-then"></a>Never use `then` for multi-line `if/unless`.
+* <a name="multiline-if-then"></a>Không bao giờ sử dụng `then` cho nhiều dòng `if/unless`.
     <sup>[[link](#multiline-if-then)]</sup>
 
     ```ruby
@@ -611,7 +611,7 @@ Trong cả hai trường hợp:
     end
     ```
 
-* <a name="multiline-while-until"></a>Never use `do` for multi-line `while` or
+* <a name="multiline-while-until"></a>Không bao giờ sử dụng `do` cho nhiều dòng `while` hoặc
     `until`.<sup>[[link](#multiline-while-until)]</sup>
 
     ```ruby
@@ -634,13 +634,10 @@ Trong cả hai trường hợp:
     end
     ```
 
-* <a name="no-and-or"></a>The `and`, `or`, and `not` keywords are banned. It's
-    just not worth it. Always use `&&`, `||`, and `!` instead.
+* <a name="no-and-or"></a>Các từ khóa `and`, `or`, và `not` đều không khả dungk. Nó chỉ là từ không có giá trị trong ruby. Thay vào đó luôn sử dụng `&&`, `||`, và `!`.
     <sup>[[link](#no-and-or)]</sup>
 
-* <a name="only-simple-if-unless"></a>Modifier `if/unless` usage is okay when
-    the body is simple, the condition is simple, and the whole thing fits on
-    one line. Otherwise, avoid modifier `if/unless`.
+* <a name="only-simple-if-unless"></a>`if/unless` thì được chấp nhận khi nội dung đơn giản, điều kiện là đơn giản, và chỉ nằm trên một dòng. Nếu không hãy tránh `if/unless`.
     <sup>[[link](#only-simple-if-unless)]</sup>
 
     ```ruby
@@ -661,8 +658,7 @@ Trong cả hai trường hợp:
     return if reconciled?
     ```
 
-* <a name="no-unless-with-else"></a>Never use `unless` with `else`. Rewrite
-    these with the positive case first.<sup>[[link](#no-unless-with-else)]</sup>
+* <a name="no-unless-with-else"></a>Không bao giờ sử dụng `unless` với `else`. <sup>[[link](#no-unless-with-else)]</sup>
 
     ```ruby
     # bad
@@ -680,8 +676,7 @@ Trong cả hai trường hợp:
     end
     ```
 
-* <a name="unless-with-multiple-conditions"></a>Avoid `unless` with multiple
-    conditions.<sup>[[link](#unless-with-multiple-conditions)]</sup>
+* <a name="unless-with-multiple-conditions"></a>Tránh dùng `unless` nhiều điều kiện<sup>[[link](#unless-with-multiple-conditions)]</sup>
 
     ```ruby
       # bad
@@ -695,8 +690,7 @@ Trong cả hai trường hợp:
       end
     ```
 
-* <a name="parens-around-conditions"></a>Don't use parentheses around the
-    condition of an `if/unless/while`.
+* <a name="parens-around-conditions"></a>Không sử dụng dấu ngoặc đơn xung quanh `if/unless/while`.
     <sup>[[link](#parens-around-conditions)]</sup>
 
     ```ruby
