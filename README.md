@@ -29,7 +29,7 @@ Airbnb cũng đang hỗ trợ cho một [JavaScript Style Guide][airbnb-javascri
   1. [Biểu thức điều kiện (Conditional Expressions)](#conditional-expressions)
     1. [Từ khóa điều kiện (Conditional keywords)](#conditional-keywords)
     1. [Ternary operator](#ternary-operator)
-  1. [Syntax](#syntax)
+  1. [Cú pháp (Syntax)](#syntax)
   1. [Naming](#naming)
   1. [Classes](#classes)
   1. [Exceptions](#exceptions)
@@ -758,13 +758,13 @@ Trong cả hai trường hợp:
     end
     ```
 
-## Syntax
+## Cú pháp (Syntax)
 
-* <a name="no-for"></a>Never use `for`, unless you know exactly why. Most of the
-    time iterators should be used instead. `for` is implemented in terms of
-    `each` (so you're adding a level of indirection), but with a twist - `for`
-    doesn't introduce a new scope (unlike `each`) and variables defined in its
-    block will be visible outside it.<sup>[[link](#no-for)]</sup>
+* <a name="no-for"></a>Không bao giờ dùng `for`, trừ khi bạn biết chính xác lý do tại sao.
+Hầu hết các vòng lặp thời gian nên được sử dụng thay thế. `for` thì thực giống như một phần của
+    `each` (vì vật bạn đang thêm một cấp gián tiếp), nhưng với một twist - `for`
+không giới hạn trong một phạm vi mới (không giôngd `each`) và các biến được định nghĩa trong nó
+    block sẽ được hiển thị bên ngoài nó.<sup>[[link](#no-for)]</sup>
 
     ```ruby
     arr = [1, 2, 3]
@@ -778,10 +778,9 @@ Trong cả hai trường hợp:
     arr.each { |elem| puts elem }
     ```
 
-* <a name="single-line-blocks"></a>Prefer `{...}` over `do...end` for
-    single-line blocks.  Avoid using `{...}` for multi-line blocks (multiline
-    chaining is always ugly). Always use `do...end` for "control flow" and
-    "method definitions" (e.g. in Rakefiles and certain DSLs).  Avoid `do...end`
+* <a name="single-line-blocks"></a>Prefer `{...}` tốt hơn `do...end` cho
+    single-line blocks.  Tránh sử dụng `{...}` cho multi-line blocks (nhiều dòng thì không tốt cho lắm). Luôn dùng `do...end` cho "kiểm soát vòng lặp" và
+    "định nghĩa phương thức".  Avoid `do...end`
     when chaining.<sup>[[link](#single-line-blocks)]</sup>
 
     ```ruby
@@ -814,9 +813,8 @@ Trong cả hai trường hợp:
     end.map { |name| name.upcase }
     ```
 
-    Some will argue that multiline chaining would look okay with the use of
-    `{...}`, but they should ask themselves if this code is really readable and
-    whether the block's content can be extracted into nifty methods.
+    Một số cho rằng `multiline chaining` sẽ trông tốt hơn với việc dùng
+    `{...}`, nhưng họ nên tự hỏi nếu chúng có thể thực sự đọc được và nội dung của `block` có thể được tách ra thành nhiều phương pháp tiện lợi.
 
 * <a name="self-assignment"></a>Use shorthand self assignment operators
     whenever applicable.<sup>[[link](#self-assignment)]</sup>
@@ -839,10 +837,7 @@ Trong cả hai trường hợp:
     x &&= y
     ```
 
-* <a name="semicolons"></a>Avoid semicolons except for in single line class
-    definitions. When it is appropriate to use a semicolon, it should be
-    directly adjacent to the statement it terminates: there should be no
-    space before the semicolon.<sup>[[link](#semicolons)]</sup>
+* <a name="semicolons"></a>Tránh dâu phẩy trong định nghĩa `single line class`. Không có khoảng trắng / khoảng cách trước dấu phẩy.<sup>[[link](#semicolons)]</sup>
 
     ```ruby
     # bad
@@ -858,9 +853,9 @@ Trong cả hai trường hợp:
     puts 'foo', 'bar' # this applies to puts in particular
     ```
 
-* <a name="colon-use"></a>Use :: only to reference constants(this includes
-    classes and modules) and constructors (like Array() or Nokogiri::HTML()).
-    Do not use :: for regular method invocation.<sup>[[link](#colon-use)]</sup>
+* <a name="colon-use"></a>Sử dụng :: chỉ để tham khảo(bao gồm
+    `classe` và `modules`) và `constructors` (giống như `Array()` hoặc `Nokogiri::HTML()`).
+    Không dùng :: cho phương pháp gọi thông thường.<sup>[[link](#colon-use)]</sup>
 
     ```ruby
     # bad
@@ -874,7 +869,7 @@ Trong cả hai trường hợp:
     SomeModule::SomeClass()
     ```
 
-* <a name="redundant-return"></a>Avoid `return` where not required.
+* <a name="redundant-return"></a>Tránh `return` khi không cần thiết.
     <sup>[[link](#redundant-return)]</sup>
 
     ```ruby
@@ -889,8 +884,8 @@ Trong cả hai trường hợp:
     end
     ```
 
-* <a name="assignment-in-conditionals"></a>Don't use the return value of `=` in
-    conditionals<sup>[[link](#assignment-in-conditionals)]</sup>
+* <a name="assignment-in-conditionals"></a>Không sử dụng kết quả trả về của `=` trong
+    câu điều kiện<sup>[[link](#assignment-in-conditionals)]</sup>
 
     ```ruby
     # bad - shows intended use of assignment
@@ -911,7 +906,7 @@ Trong cả hai trường hợp:
 
     ```
 
-* <a name="double-pipe-for-uninit"></a>Use `||=` freely to initialize variables.
+* <a name="double-pipe-for-uninit"></a>Sử dụng `||=` để khởi tạo biến.
     <sup>[[link](#double-pipe-for-uninit)]</sup>
 
     ```ruby
@@ -919,8 +914,8 @@ Trong cả hai trường hợp:
     name ||= 'Bozhidar'
     ```
 
-* <a name="no-double-pipes-for-bools"></a>Don't use `||=` to initialize boolean
-    variables. (Consider what would happen if the current value happened to be
+* <a name="no-double-pipes-for-bools"></a>Không dùng `||=` để khởi tạo biến `boonlean`
+. (Hãy xem xét những gì sẽ xảy ra nếu giá trị hiện tại đã xảy ra được
     `false`.)<sup>[[link](#no-double-pipes-for-bools)]</sup>
 
     ```ruby
@@ -931,7 +926,7 @@ Trong cả hai trường hợp:
     enabled = true if enabled.nil?
     ```
 
-* <a name="lambda-calls"></a>Use `.call` explicitly when calling lambdas.
+* <a name="lambda-calls"></a>Sử dụng `.call` chính xác khi gọi lambdas.
     <sup>[[link](#lambda-calls)]</sup>
 
     ```ruby
@@ -942,14 +937,12 @@ Trong cả hai trường hợp:
     lambda.call(x, y)
     ```
 
-* <a name="no-cryptic-perl"></a>Avoid using Perl-style special variables (like
-    `$0-9`, `$`, etc. ). They are quite cryptic and their use in anything but
-    one-liner scripts is discouraged. Prefer long form versions such as
+* <a name="no-cryptic-perl"></a>Tránh dùng `Perl-style` các biến đặc biệt (giống như
+    `$0-9`, `$`, ... ). Chúng thì khó hiểu và không khuyến khích sử dụng chúng trong bất kì trường hợp. Tên một biến dài nên giống như
     `$PROGRAM_NAME`.<sup>[[link](#no-cryptic-perl)]</sup>
 
-* <a name="single-action-blocks"></a>When a method block takes only one
-    argument, and the body consists solely of reading an attribute or calling
-    one method with no arguments, use the `&:` shorthand.
+* <a name="single-action-blocks"></a>Khi một `method block` chỉ có một đối số
+    , và nội dung chỉ gồm đọc một thuộc tính hoặc gọi một phương thức không có đối số, sử dụng cách viết ngăn `&:`.
     <sup>[[link](#single-action-blocks)]</sup>
 
     ```ruby
@@ -962,8 +955,8 @@ Trong cả hai trường hợp:
     bluths.select(&:blue_self?)
     ```
 
-* <a name="redundant-self"></a>Prefer `some_method` over `self.some_method` when
-    calling a method on the current instance.<sup>[[link](#redundant-self)]</sup>
+* <a name="redundant-self"></a>Prefer `some_method` tốt hơn `self.some_method` khi
+    khi gọi một phương thức hiện tại.<sup>[[link](#redundant-self)]</sup>
 
     ```ruby
     # bad
@@ -977,12 +970,11 @@ Trong cả hai trường hợp:
     end
     ```
 
-    In the following three common cases, `self.` is required by the language
-    and is good to use:
+   Trong ba trường hợp phố biến sau đây, `self.` là yêu cầu của ngôn ngữ
+     và là tốt để sử dụng:
 
-    1. When defining a class method: `def self.some_method`.
-    2. The *left hand side* when calling an assignment method, including assigning
-       an attribute when `self` is an ActiveRecord model: `self.guest = user`.
+    1. Khi xác định một `class method`: `def self.some_method`.
+    2. *left hand side* khi gọi một ssignment method, bao gồm cả thuộc tính khi `self` là một ActiveRecord model: `self.guest = user`.
     3. Referencing the current instance's class: `self.class`.
 
 ## Naming
