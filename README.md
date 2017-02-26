@@ -979,27 +979,24 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
 
 ## Naming
 
-* <a name="snake-case"></a>Use `snake_case` for methods and variables.
+* <a name="snake-case"></a>Sử dụng `snake_case` cho các phương thức và biến.
     <sup>[[link](#snake-case)]</sup>
 
-* <a name="camel-case"></a>Use `CamelCase` for classes and modules. (Keep
-    acronyms like HTTP, RFC, XML uppercase.)
+* <a name="camel-case"></a>Sử dụng `CamelCase` cho các class và module. (Giữ các từ viết tắt như HTTP, RFC, XML viết hoa.)
     <sup>[[link](#camel-case)]</sup>
 
-* <a name="screaming-snake-case"></a>Use `SCREAMING_SNAKE_CASE` for other
-    constants.<sup>[[link](#screaming-snake-case)]</sup>
+* <a name="screaming-snake-case"></a>Sử dụng `SCREAMING_SNAKE_CASE` cho các
+    biến cố tĩnh khác nhau.<sup>[[link](#screaming-snake-case)]</sup>
 
-* <a name="predicate-method-names"></a>The names of predicate methods (methods
-    that return a boolean value) should end in a question mark.
+* <a name="predicate-method-names"></a>Tên của các predicate methods (Các phương thức có giá trị trả về kiểu boolean) nên kết thúc bằng một dấu chấm hỏi.
     (i.e. `Array#empty?`).<sup>[[link](#predicate-method-names)]</sup>
 
-* <a name="bang-methods"></a>The names of potentially "dangerous" methods
-    (i.e. methods that modify `self` or the arguments, `exit!`, etc.) should
-    end with an exclamation mark. Bang methods should only exist if a non-bang
-    method exists. ([More on this][ruby-naming-bang].)
+* <a name="bang-methods"></a>Tên khả dụng của các  "dangerous" methods
+    (các phương thức có thể chỉnh sửa `self` hoặc đối số, `exit!`, ...) nên kết thúc với một dấu chấm than. Bang methods should only exist if a non-bang
+    method exists. ([Xem nhiều hơn về nó][ruby-naming-bang].)
     <sup>[[link](#bang-methods)]</sup>
 
-* <a name="throwaway-variables"></a>Name throwaway variables `_`.
+* <a name="throwaway-variables"></a>Tên của các các biến throwaway  `_`.
     <sup>[[link](#throwaway-variables)]</sup>
 
     ```ruby
