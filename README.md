@@ -31,8 +31,8 @@ Airbnb cũng đang hỗ trợ cho một [JavaScript Style Guide][airbnb-javascri
     1. [Ternary operator](#ternary-operator)
   1. [Cú pháp (Syntax)](#syntax)
   1. [Naming](#naming)
-  1. [Classes](#classes)
-  1. [Exceptions](#exceptions)
+  1. [Các lớp (Classes)](#classes)
+  1. [Trường hợp ngoại lệ (Exceptions)](#exceptions)
   1. [Collections](#collections)
   1. [Strings](#strings)
   1. [Regular Expressions](#regular-expressions)
@@ -1027,12 +1027,10 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     Parent.print_class_var # => will print "child"
     ```
 
-  As you can see all the classes in a class hierarchy actually share one
-  class variable. Class instance variables should usually be preferred
-  over class variables.
+  Như bạn có thể xem tất cả các lớp trong một hệ thống phân cấp lớp thực sự chia sẻ một `class variable`. Class instance variables should usually be preferred over class variables.
 
-* <a name="singleton-methods"></a>Use `def self.method` to define singleton
-    methods. This makes the methods more resistant to refactoring changes.
+* <a name="singleton-methods"></a>Sử dụng `def self.method` để khởi tạo `singleton methods`. 
+  This makes the methods more resistant to refactoring changes.
     <sup>[[link](#singleton-methods)]</sup>
 
     ```ruby
@@ -1047,8 +1045,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
         ...
       end
     ```
-* <a name="no-class-self"></a>Avoid `class << self` except when necessary,
-    e.g. single accessors and aliased attributes.
+* <a name="no-class-self"></a>Tránh dùng `class << self` trừ khi là cần thiết, `single accessors` và `aliased attributes`.
     <sup>[[link](#no-class-self)]</sup>
 
     ```ruby
@@ -1081,8 +1078,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     ```
 
 * <a name="access-modifiers"></a>Indent the `public`, `protected`, and
-    `private` methods as much the method definitions they apply to. Leave one
-    blank line above and below them.<sup>[[link](#access-modifiers)]</sup>
+    `private` methods as much the method definitions they apply to. Cần có một dòng trống phía trên và dưới của chúng.<sup>[[link](#access-modifiers)]</sup>
 
     ```ruby
     class SomeClass
@@ -1098,9 +1094,9 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     end
     ```
 
-## Exceptions
+## Trường hợp ngoại lệ (Exceptions)
 
-* <a name="exception-flow-control"></a>Don't use exceptions for flow of control.
+* <a name="exception-flow-control"></a>Không sử dụng các ngoại lệ cho dòng điều khiển.
     <sup>[[link](#exception-flow-control)]</sup>
 
     ```ruby
@@ -1119,7 +1115,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     end
     ```
 
-* <a name="dont-rescue-exception"></a>Avoid rescuing the `Exception` class.
+* <a name="dont-rescue-exception"></a>Tránh giải quyết class `Exception`.
     <sup>[[link](#dont-rescue-exception)]</sup>
 
     ```ruby
@@ -1145,8 +1141,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     end
     ```
 
-* <a name="redundant-exception"></a>Don't specify `RuntimeError` explicitly in
-    the two argument version of raise. Prefer error sub-classes for clarity and
+* <a name="redundant-exception"></a>Không xác dịnh `RuntimeError` một cách rõ ràng trong hai đối số của `raise`. Prefer error sub-classes for clarity and
     explicit error creation.<sup>[[link](#redundant-exception)]</sup>
 
     ```ruby
@@ -1163,8 +1158,8 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
 
 
 * <a name="exception-class-messages"></a>
-    Prefer supplying an exception class and a message as two separate arguments
-    to `raise`, instead of an exception instance.
+    Cung cấp một lớp ngoại lệ và một tin nhắn như hai đối số riêng
+    cho `raise`, thay vì một trường hợp ngoại lệ.
     <sup>[[link](#exception-class-messages)]</sup>
 
     ```Ruby
