@@ -1190,19 +1190,19 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
 
 ## Collections
 
-* <a name="map-over-collect"></a>Prefer `map` over
+* <a name="map-over-collect"></a>Tiền tố `map` tốt hơn
     `collect`.<sup>[[link](#map-over-collect)]</sup>
 
-* <a name="detect-over-find"></a>Prefer `detect` over `find`. The use of `find`
+* <a name="detect-over-find"></a>Tiền tố `detect` tốt hơn `find`. The use of `find`
     is ambiguous with regard to ActiveRecord's `find` method - `detect` makes
     clear that you're working with a Ruby collection, not an AR object.
     <sup>[[link](#detect-over-find)]</sup>
 
-* <a name="reduce-over-inject"></a>Prefer `reduce` over `inject`.
+* <a name="reduce-over-inject"></a>Tiền tố `reduce` tốt hơn `inject`.
     <sup>[[link](#reduce-over-inject)]</sup>
 
-* <a name="size-over-count"></a>Prefer `size` over either `length` or `count`
-    for performance reasons.<sup>[[link](#size-over-count)]</sup>
+* <a name="size-over-count"></a>Tiền tố `size` tốt hơn `length` hoặc `count`
+    cho performance.<sup>[[link](#size-over-count)]</sup>
 
 * <a name="empty-collection-literals"></a>Prefer literal array and hash creation
     notation unless you need to pass parameters to their constructors.
@@ -1221,7 +1221,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     x = Hash.new { |h, k| h[k] = {} }
     ```
 
-* <a name="array-join"></a>Favor `Array#join` over `Array#*` for clarity.
+* <a name="array-join"></a>Ủng họ việc dùng `Array#join` hơn là `Array#*`.
     <sup>[[link](#array-join)]</sup>
 
     ```ruby
@@ -1234,7 +1234,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     # => 'one, two, three'
     ```
 
-* <a name="symbol-keys"></a>Use symbols instead of strings as hash keys.
+* <a name="symbol-keys"></a>Sử dụng `symbols` thay vì `string` như một `hash keys`.
     <sup>[[link](#symbol-keys)]</sup>
 
     ```ruby
@@ -1245,8 +1245,8 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     hash = { :one => 1, :two => 2, :three => 3 }
     ```
 
-* <a name="symbol-literals"></a>Relatedly, use plain symbols instead of string
-    symbols when possible.<sup>[[link](#symbol-literals)]</sup>
+* <a name="symbol-literals"></a>Sử dụng `plain symbols` thay vì string
+    symbols khi có thể.<sup>[[link](#symbol-literals)]</sup>
 
     ```ruby
     # bad
@@ -1256,8 +1256,8 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     :symbol
     ```
 
-* <a name="deprecated-hash-methods"></a>Use `Hash#key?` instead of
-    `Hash#has_key?` and `Hash#value?` instead of `Hash#has_value?`. According
+* <a name="deprecated-hash-methods"></a>Sử dụng `Hash#key?` thay vì
+    `Hash#has_key?` và `Hash#value?` thay vì `Hash#has_value?`. According
     to Matz, the longer forms are considered deprecated.
     <sup>[[link](#deprecated-hash-methods)]</sup>
 
@@ -1271,9 +1271,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     hash.value?(value)
     ```
 
-* <a name="multiline-hashes"></a>Use multi-line hashes when it makes the code
-    more readable, and use trailing commas to ensure that parameter changes
-    don't cause extraneous diff lines when the logic has not otherwise changed.
+* <a name="multiline-hashes"></a>Sử dụng nhiều dòng hashes sẽ giúp code của bạn dễ đọc hơn.
     <sup>[[link](#multiline-hashes)]</sup>
 
     ```ruby
@@ -1287,8 +1285,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     }
     ```
 
-* <a name="array-trailing-comma"></a>Use a trailing comma in an `Array` that
-    spans more than 1 line<sup>[[link](#array-trailing-comma)]</sup>
+* <a name="array-trailing-comma"></a>Sử dụng dấu phẩy trong một `Array` sẽ nhiều hơn một dòng<sup>[[link](#array-trailing-comma)]</sup>
 
     ```ruby
     # good
