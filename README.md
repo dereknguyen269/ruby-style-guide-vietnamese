@@ -1,6 +1,6 @@
 # Airbnb Ruby Style Guide - Vietnamese (Tiếng Việt)
 
-Status / Tình trạng : Processing /Chưa xong 
+Các nội dung mà mình dịch sẽ chỉ dịch những phần nào dễ hiểu nhất, còn từ hay đoạn nào dịch ra sẽ nghe rất là kì mình sẽ để nguyên. 
 
 # Nội Dung 
 
@@ -34,7 +34,7 @@ Airbnb cũng đang hỗ trợ cho một [JavaScript Style Guide][airbnb-javascri
   1. [Các lớp (Classes)](#classes)
   1. [Trường hợp ngoại lệ (Exceptions)](#exceptions)
   1. [Collections](#collections)
-  1. [Strings](#strings)
+  1. [Chuỗi (Strings)](#strings)
   1. [Regular Expressions](#regular-expressions)
   1. [Percent Literals](#percent-literals)
   1. [Rails](#rails)
@@ -1302,8 +1302,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
 
 ## Strings
 
-* <a name="string-interpolation"></a>Prefer string interpolation instead of
-    string concatenation:<sup>[[link](#string-interpolation)]</sup>
+* <a name="string-interpolation"></a>Chèn các biến vào trong một chuỗi sẽ trông tốt hơn là phải nối các biến lại và kí tự lại với nhau.<sup>[[link](#string-interpolation)]</sup>
 
     ```ruby
     # bad
@@ -1313,7 +1312,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     email_with_name = "#{user.name} <#{user.email}>"
     ```
 
-  Furthermore, keep in mind Ruby 1.9-style interpolation. Let's say you are
+  Hơn nữa,luôn ghi nhớ thêm vào Ruby 1.9-style. Let's say you are
   composing cache keys like this:
 
     ```ruby
@@ -1330,8 +1329,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     cache.write(CACHE_KEY % @user.id)
     ```
 
-* <a name="string-concatenation"></a>Avoid using `String#+` when you need to
-    construct large data chunks. Instead, use `String#<<`. Concatenation mutates
+* <a name="string-concatenation"></a>Tránh dùng `String#+` khi bạn cần xây dựng dữ liệu lớn. Thay vào đó, sử dụng `String#<<`. Concatenation mutates
     the string instance in-place  and is always faster than `String#+`, which
     creates a bunch of new string objects.<sup>[[link](#string-concatenation)]</sup>
 
@@ -1345,8 +1343,8 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     end
     ```
 
-* <a name="multi-line-strings"></a>Use `\` at the end of the line instead of `+`
-    or `<<` to concatenate multi-line strings.
+* <a name="multi-line-strings"></a>Sử dụng `\` ở cuối dòng thay vì dấu `+`
+    hoặc `<<` để nối chuỗi cho nhiều dòng.
     <sup>[[link](#multi-line-strings)]</sup>
 
     ```ruby
@@ -1364,8 +1362,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
 
 ## Regular Expressions
 
-* <a name="regex-named-groups"></a>Avoid using `$1-9` as it can be hard to track
-    what they contain. Named groups can be used instead.
+* <a name="regex-named-groups"></a>Tránh sử dụng `$1-9` nó rất khó để kiểm soát những gì chúng chứa. Tên các group có thể sử dụng thay vào đó.
     <sup>[[link](#regex-named-groups)]</sup>
 
     ```ruby
@@ -1380,9 +1377,8 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     process meaningful_var
     ```
 
-* <a name="caret-and-dollar-regexp"></a>Be careful with `^` and `$` as they
-    match start/end of line, not string endings.  If you want to match the whole
-    string use: `\A` and `\z`.<sup>[[link](#caret-and-dollar-regexp)]</sup>
+* <a name="caret-and-dollar-regexp"></a>Luôn cẩn thận với `^` và `$` giống như việc
+    match đầu/cuối của dòng, không kết thúc chuỗi.  Nếu bạn muốn match toàn bộ chuỗi: `\A` và `\z`.<sup>[[link](#caret-and-dollar-regexp)]</sup>
 
     ```ruby
     string = "some injection\nusername"
@@ -1390,9 +1386,8 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     string[/\Ausername\z/] # don't match
     ```
 
-* <a name="comment-regexes"></a>Use `x` modifier for complex regexps. This makes
-    them more readable and you can add some useful comments. Just be careful as
-    spaces are ignored.<sup>[[link](#comment-regexes)]</sup>
+* <a name="comment-regexes"></a>Sử dụng `x` để sửa cho các regexp phức tạp. Việc làm đó
+    sẽ làm cho chúng dễ đọc và ta có thể thêm vào các chú thích. Cẩn thận các khoảng trắng/khoảng cách bị bỏ qua.<sup>[[link](#comment-regexes)]</sup>
 
     ```ruby
     regexp = %r{
@@ -1421,15 +1416,14 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     %w(date locale)
     ```
 
-* <a name="percent-w"></a>Use `%w` freely.<sup>[[link](#percent-w)]</sup>
+* <a name="percent-w"></a>Sử dụng `%w`.<sup>[[link](#percent-w)]</sup>
 
     ```ruby
     STATES = %w(draft open closed)
     ```
 
-* <a name="percent-parens"></a>Use `%()` for single-line strings which require
-    both interpolation and embedded double-quotes. For multi-line strings,
-    prefer heredocs.<sup>[[link](#percent-parens)]</sup>
+* <a name="percent-parens"></a>Sử dụng `%()` cho chuỗi là dòng đơn mà yêu cầu cả
+    cả `interpolation` và `embedded double-quotes`. Cho nhiều chuỗi nhiều dòng.<sup>[[link](#percent-parens)]</sup>
 
     ```ruby
     # bad - no interpolation needed
@@ -1448,8 +1442,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     %(<tr><td class="name">#{name}</td>)
     ```
 
-* <a name="percent-r"></a>Use `%r` only for regular expressions matching *more
-    than* one '/' character.<sup>[[link](#percent-r)]</sup>
+* <a name="percent-r"></a>Chỉ sử dụng `%r` cho regular expressions matching *nhiều hơn* một kí tự '/'.<sup>[[link](#percent-r)]</sup>
 
     ```ruby
     # bad
@@ -1463,8 +1456,7 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
     %r(^/blog/2011/(.*)$)
     ```
 
-* <a name="percent-x"></a>Avoid the use of %x unless you're going to invoke a
-    command with backquotes in it (which is rather unlikely).
+* <a name="percent-x"></a>Tránh dùng %x.
     <sup>[[link](#percent-x)]</sup>
 
     ```ruby
@@ -1478,8 +1470,8 @@ không giới hạn trong một phạm vi mới (không giôngd `each`) và các
 
 ## Rails
 
-* <a name="next-line-return"></a>When immediately returning after calling
-    `render` or `redirect_to`, put `return` on the next line, not the same line.
+* <a name="next-line-return"></a>Khi ngay lập tức quay trở lại sau khi gọi 
+    `render` hoặc `redirect_to`, thêm `return` cho dòng tiếp thep, không nằm cùng 1 dòng.
     <sup>[[link](#next-line-return)]</sup>
 
     ```ruby
